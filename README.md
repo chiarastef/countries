@@ -10,8 +10,6 @@ This is a solution to the [REST Countries API with color theme switcher challeng
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
 
 ## Overview
@@ -24,14 +22,16 @@ Users should be able to:
 - Search for a country using an `input` field
 - Filter countries by region
 - Click on a country to see more detailed information on a separate page
-- Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode
 
 ### Screenshot
 
+<img src="./screenshots/desktop-preview.png" alt="countries desktop preview" width="73%"><img src="./screenshots/mobile-preview.png" alt="countries phone preview" width="22%">
+<img src="./screenshots/country-detail-desktop-preview.png" alt="country detail desktop preview" width="73%"><img src="./screenshots/country-detail-mobile-preview.png" alt="county detail phone preview" width="22%">
+
 ### Links
 
-- Live Site URL:
+[Live Site URL](https://countries-frontendmentor.netlify.app/)
 
 ## My process
 
@@ -48,15 +48,6 @@ Users should be able to:
 - [MaterialUI](https://mui.com/)
 - [React Spinners](https://www.npmjs.com/package/react-spinners)
 - [Flaticon](https://www.flaticon.com/) - for the favicon
-
-### What I learned
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 
