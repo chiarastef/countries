@@ -90,9 +90,9 @@ const CountryDetail = (props: CountryDetailProps): JSX.Element => {
               countryQuery.data.BorderCountries.length > 0 && (
                 <div>
                   <span className="font-semibold">Border Countries: </span>
-                  {countryQuery.data.BorderCountries?.map((border) => {
+                  {countryQuery.data.BorderCountries?.map((border, idx) => {
                     return (
-                      <span className="border px-3 py-1 rounded ml-1">
+                      <span key={idx} className="border px-3 py-1 rounded ml-1">
                         {border}
                       </span>
                     );

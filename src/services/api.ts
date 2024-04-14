@@ -17,7 +17,10 @@ export const getCountries = async (
   try {
     const response = await fetch(url);
     const data = await response.json();
-    const result = mapCountries(data);
+    const sortedData = data.sort((a: any, b: any) =>
+      ("" + a.name.common).localeCompare(b.name.common)
+    );
+    const result = mapCountries(sortedData);
     return result;
   } catch (e) {
     console.log(e);
@@ -50,7 +53,6 @@ export const getCountryInfo = async (
     const response = await fetch(url);
     const data = await response.json();
     const result = mapCountry(data[0]);
-    console.log(result);
     return result;
   } catch (e) {
     console.log(e);
