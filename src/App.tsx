@@ -1,34 +1,69 @@
 import React from "react";
-import { Country } from "./models/country";
-import { mapCountries } from "./utilities/utilities";
 import { useQuery } from "@tanstack/react-query";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Filters from "./components/Filters";
+import { getCountries } from "./services/api";
+import Home from "./pages/Home";
+import CountryDetail from "./pages/CountryDetail";
 
 const App = (): JSX.Element => {
   const [isDarkMode, setIsDarkMode] = React.useState<boolean>(false);
-  //const [countries, setCountries] = React.useState<Country[]>([]);
   const [searchText, setSearchText] = React.useState<string>("");
   const [regionSelected, setRegionSelected] = React.useState<string>("");
 
-  const query = useQuery({
+  const updateSearchText = (text: string): void => {
+    setSearchText(text);
+    setRegionSelected("");
+  };
+
+  const updateRegion = (region: string): void => {
+    setRegionSelected(region);
+    setSearchText("");
+  };
+
+  const resetFilters = (): void => {
+    setSearchText("");
+    setRegionSelected("");
+  };
+
+  const countriesQuery = useQuery({
     queryKey: ["countries"],
-    queryFn: () =>
-      fetch("https://restcountries.com/v3.1/all").then((res) => res.json()),
+    queryFn: () => getCountries(searchText, regionSelected),
   });
 
-  //console.log(query.data);
+  React.useEffect(() => {
+    countriesQuery.refetch();
+  }, [searchText, regionSelected, countriesQuery.refetch]);
 
   return (
-    <div className="font-nunito">
-      <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-      <div className="bg-slate-50">
-        <Filters
-          setSearchText={setSearchText}
-          region={regionSelected}
-          setRegion={setRegionSelected}
+    <div className={`font-nunito ${isDarkMode ? "dark" : ""} h-full`}>
+      <Router>
+        <Navbar
+          isDarkMode={isDarkMode}
+          setIsDarkMode={setIsDarkMode}
+          resetFilters={resetFilters}
         />
-      </div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                isDarkMode={isDarkMode}
+                searchText={searchText}
+                updateSearchText={updateSearchText}
+                regionSelected={regionSelected}
+                updateRegion={updateRegion}
+                resetFilters={resetFilters}
+                countriesQuery={countriesQuery}
+              />
+            }
+          />
+          <Route
+            path="/country/:name"
+            element={<CountryDetail isDarkMode={isDarkMode} />}
+          />
+        </Routes>
+      </Router>
     </div>
   );
 };

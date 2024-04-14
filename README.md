@@ -43,8 +43,11 @@ Users should be able to:
 - Mobile-first workflow
 - [React](https://reactjs.org/)
 - [React Query](https://tanstack.com/query/v3/)
-- [Tailwind CSS](https://tailwindcss.com/) - For styles
+- [React Router](https://www.npmjs.com/package/react-router-dom)
+- [Tailwind CSS](https://tailwindcss.com/)
 - [MaterialUI](https://mui.com/)
+- [React Spinners](https://www.npmjs.com/package/react-spinners)
+- [Flaticon](https://www.flaticon.com/) - for the favicon
 
 ### What I learned
 

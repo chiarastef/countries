@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 interface SearchBarProps {
-  setSearchText: React.Dispatch<React.SetStateAction<string>>;
+  updateSearchText: (text: string) => void;
 }
 
 const SearchBar = (props: SearchBarProps): JSX.Element => {
@@ -16,13 +16,13 @@ const SearchBar = (props: SearchBarProps): JSX.Element => {
 
   const search = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    props.setSearchText(queryText);
+    props.updateSearchText(queryText);
     setQueryText("");
   };
 
   return (
     <form onSubmit={search}>
-      <div className="shadow px-3 rounded bg-white relative">
+      <div className="shadow px-3 rounded bg-white relative dark:bg-neutral-900">
         <FontAwesomeIcon
           icon={faMagnifyingGlass}
           className="text-slate-400 absolute top-0 bottom-0 my-auto"
@@ -32,7 +32,7 @@ const SearchBar = (props: SearchBarProps): JSX.Element => {
           value={queryText}
           onChange={handleChange}
           placeholder="Search for a country..."
-          className="pl-7 pr-3 py-2 w-full"
+          className="pl-7 pr-3 py-2 w-full dark:bg-neutral-900 dark:text-slate-100 focus-visible:outline-0"
         />
       </div>
     </form>
