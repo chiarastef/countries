@@ -41,6 +41,7 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - Mobile-first workflow
+- [REST Countries API](https://restcountries.com/)
 - [React](https://reactjs.org/)
 - [React Query](https://tanstack.com/query/v3/)
 - [React Router](https://www.npmjs.com/package/react-router-dom)
