@@ -8,7 +8,7 @@ interface CurrentFilterProps {
 
 const CurrentFilter = (props: CurrentFilterProps): JSX.Element => {
   return (
-    <div className="mt-5 dark:text-slate-100">
+    <div className="max-w-7xl mt-5 mx-auto dark:text-slate-100">
       {props.searchText ? "You have searched: " : "You have filtered: "}
       {props.searchText ? `"${props.searchText}"` : `"${props.region}"`}
       <button
